@@ -1,33 +1,16 @@
 .test {
-  background-color: rgb(40, 212, 48);
-
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  z-index: 100;
-
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-
-  transform: translateX(200%);
-  transition: all 0.3s ease;
-  opacity: 0;
-
-  /* flex-gap */
-  row-gap: 15px;
-  visibility: hidden;
-  vertical-align: center;
-  align-self: center;
-  border-bottom: 1px solid rgba(57, 57, 57, 1);
-  display: none;
-  flex-wrap: wrap;
-  text-decoration: underline;
-
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  transform: translateY(-40px);
+  text-align: center;
+
+  color: #ebe4e3;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-/* .test2: :nth-last-child() */
+/* .test2: :nth-child(2) */
