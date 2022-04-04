@@ -1,14 +1,17 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+
 import { StyledButton, StyledInput, ValidationError, Container, Title } from './style';
 
 type InputsType = {
   email: string;
-  username: string;
   password: string;
 };
 
-const CreateLogin = () => {
+const Login = () => {
+  // const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -17,22 +20,13 @@ const CreateLogin = () => {
   } = useForm<InputsType>();
 
   const onSubmit: SubmitHandler<InputsType> = (data) => {
-    console.log(data);
     reset();
   };
 
   return (
     <Container>
-      <Title>Create account</Title>
+      <Title>Log in</Title>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <ValidationError>{errors.username && errors.username.message}</ValidationError>
-        <StyledInput
-          placeholder="Username"
-          {...register('username', {
-            required: 'field cannot be empty',
-          })}
-        />
-
         <ValidationError>{errors.email && errors.email.message}</ValidationError>
         <StyledInput
           placeholder="Email"
@@ -54,10 +48,10 @@ const CreateLogin = () => {
           })}
         />
 
-        <StyledButton>Send password</StyledButton>
+        <StyledButton>Log in</StyledButton>
       </form>
     </Container>
   );
 };
 
-export default CreateLogin;
+export default Login;

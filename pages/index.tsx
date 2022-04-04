@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { HomeCard } from '../components/HomeCard';
+import { HomeCard } from '../components';
 import Link from 'next/link';
 
 const Home: React.FC = () => {
