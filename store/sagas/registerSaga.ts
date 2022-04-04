@@ -12,7 +12,7 @@ function* signUpSaga(action: RegisterUserActionType) {
     );
 
     if (response.data) {
-      console.log('signUpSaga ', response.data);
+      // console.log('signUpSaga ', response.data);
       yield put(setActiveStep(2));
     }
   } catch (error) {

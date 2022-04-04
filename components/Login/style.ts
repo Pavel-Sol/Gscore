@@ -22,6 +22,7 @@ export const StyledInput = styled(Input)`
 
 export const StyledButton = styled(Button)`
   margin-top: 43px;
+  min-width: 200px;
 `;
 
 export const ValidationError = styled.p`

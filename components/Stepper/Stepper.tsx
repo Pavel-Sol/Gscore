@@ -13,11 +13,11 @@ const Stepper: React.FC<StepperProps> = ({ step }) => {
     <StepperWrap>
       <StepperItem>
         <ItemTitle>Create account</ItemTitle>
-        <ItemLine isActive={step === 1} />
+        <ItemLine isActive={true} />
       </StepperItem>
       <StepperItem>
         <ItemTitle>Log In</ItemTitle>
-        <ItemLine isActive={step === 2} />
+        <ItemLine isActive={step > 1} />
       </StepperItem>
       <StepperItem>
         <ItemTitle>Checkout</ItemTitle>

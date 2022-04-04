@@ -1,10 +1,20 @@
 import { createAction } from '@reduxjs/toolkit';
-import { RegisterUserType } from '../../types/types';
+import { LoginRequestType, RegisterRequestType } from '../../types/types';
 
-export const registerUserAction = createAction('registerUser', (user: RegisterUserType) => {
+export const registerUserAction = createAction('registerUser', (user: RegisterRequestType) => {
   return {
     payload: {
       user,
     },
   };
 });
+
+export const loginUserAction = createAction('loginUser', (user: LoginRequestType) => {
+  return {
+    payload: {
+      user,
+    },
+  };
+});
+
+export const authMeAction = createAction('authMe');

@@ -1,10 +1,28 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HomeCard } from '../components';
 import Link from 'next/link';
+import { LS } from '../store/services';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../store/reducers';
+import { authMeAction } from '../store/actions';
+import { RootState } from '../store/store';
 
 const Home: React.FC = () => {
-  const isAuth = false;
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state: RootState) => state.user.isAuth);
+  console.log('isAuth!!!!', isAuth);
+
+  useEffect(() => {
+    const token = LS.getToken();
+    console.log('Home', token);
+    if (!token) {
+      dispatch(reset());
+    } else {
+      dispatch(authMeAction());
+    }
+  }, []);
+
   return (
     <>
       <Title>Get started with Gscore today!</Title>
