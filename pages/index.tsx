@@ -4,6 +4,7 @@ import { HomeCard } from '../components/HomeCard';
 import Link from 'next/link';
 
 const Home: React.FC = () => {
+  const isAuth = false;
   return (
     <>
       <Title>Get started with Gscore today!</Title>

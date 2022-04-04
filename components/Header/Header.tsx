@@ -7,7 +7,7 @@ import { DescNav, Burger, MobileNav } from './components';
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
-  const isAuth = true;
+  const isAuth = false;
   const userName = 'Victor';
   const [isShowMobileNav, setIsShowMobileNav] = useState(false);
   const toggleMobileNav = (isShow: boolean) => {

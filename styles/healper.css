@@ -1,6 +1,5 @@
 .test {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -11,6 +10,11 @@
   color: #ebe4e3;
   font-weight: 700;
   text-decoration: underline;
+  height: 8px;
+}
+
+input {
+  outline: none;
 }
 
 /* .test2: :nth-child(2) */
