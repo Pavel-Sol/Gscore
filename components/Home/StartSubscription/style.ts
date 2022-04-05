@@ -46,20 +46,7 @@ export const TariffRowTitle = styled.p`
   font-weight: 700;
 `;
 
-export const Total = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 24px 0px 45px 0px;
-`;
-
-export const TotalText = styled.p`
-  font-weight: 700;
-  font-size: 28px;
-  margin: 0;
-`;
-
 export const StyledBtn = styled(Button)`
   width: 100%;
+  margin-top: 48px;
 `;

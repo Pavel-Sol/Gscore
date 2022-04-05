@@ -14,8 +14,9 @@ import {
   ItemText,
   StyledBtn,
 } from './style';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+import { setTariff } from '../../../store/reducers';
 
 type HomeCardProps = {
   bg?: string;
@@ -25,15 +26,15 @@ type HomeCardProps = {
 const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
   const router = useRouter();
   const isAuth = useSelector((state: RootState) => state.user.isAuth);
+  const dispatch = useDispatch();
 
   const handleGetGScore = () => {
+    dispatch(setTariff({ price, title }));
+
     if (isAuth) {
       router.push('subscriptions');
     } else {
-      router.push({
-        pathname: 'auth',
-        query: { price, title },
-      });
+      router.push('auth');
     }
   };
   return (

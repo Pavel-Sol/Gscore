@@ -1,5 +1,7 @@
-import { ParsedUrlQuery } from 'querystring';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 import {
   Container,
@@ -8,17 +10,12 @@ import {
   TariffContainer,
   TariffRow,
   TariffRowTitle,
-  Total,
-  TotalText,
   StyledBtn,
 } from './style';
 
-type StartSubscriptionProps = {
-  tariff: ParsedUrlQuery;
-};
-const StartSubscription: React.FC<StartSubscriptionProps> = ({ tariff }) => {
-  // console.log('tariff ', tariff);
-
+const StartSubscription = () => {
+  const tariff = useSelector((state: RootState) => state.subscription.tariff);
+  const router = useRouter();
   return (
     <Container>
       <Title>Start your subscription</Title>
@@ -32,15 +29,11 @@ const StartSubscription: React.FC<StartSubscriptionProps> = ({ tariff }) => {
           <TariffRowTitle>Price</TariffRowTitle>
         </TariffRow>
         <TariffRow>
-          <p>{tariff.title}</p>
-          <p>${tariff.price}</p>
+          <p>{tariff?.title}</p>
+          <p>${tariff?.price}</p>
         </TariffRow>
       </TariffContainer>
-      <Total>
-        <TotalText>Total:</TotalText>
-        <TotalText>${tariff.price}</TotalText>
-      </Total>
-      <StyledBtn>Go to my subscriptions</StyledBtn>
+      <StyledBtn onClick={() => router.push('subscriptions')}>Go to my subscriptions</StyledBtn>
     </Container>
   );
 };

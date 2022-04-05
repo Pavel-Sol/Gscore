@@ -1,7 +1,7 @@
-import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStep } from '../../../store/reducers';
+import { RootState } from '../../../store/store';
 import {
   Container,
   Title,
@@ -13,11 +13,9 @@ import {
   StyledBtn,
 } from './style';
 
-type CheckoutProps = {
-  tariff: ParsedUrlQuery;
-};
-const Checkout: React.FC<CheckoutProps> = ({ tariff }) => {
-  // console.log('tariff ', tariff);
+
+const Checkout = () => {
+  const tariff = useSelector((state: RootState) => state.subscription.tariff);
   const dispatch = useDispatch();
   const handleNextStep = () => {
     dispatch(setActiveStep(4));
@@ -32,13 +30,13 @@ const Checkout: React.FC<CheckoutProps> = ({ tariff }) => {
           <TariffRowTitle>Price</TariffRowTitle>
         </TariffRow>
         <TariffRow>
-          <p>{tariff.title}</p>
-          <p>${tariff.price}</p>
+          <p>{tariff?.title}</p>
+          <p>${tariff?.price}</p>
         </TariffRow>
       </TariffContainer>
       <Total>
         <TotalText>Total:</TotalText>
-        <TotalText>${tariff.price}</TotalText>
+        <TotalText>${tariff?.price}</TotalText>
       </Total>
       <StyledBtn onClick={handleNextStep}>Purchase</StyledBtn>
     </Container>

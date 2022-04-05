@@ -29,5 +29,10 @@ export type AuthMeResponseType = {
   username: string;
 };
 
+export type TariffType = {
+  title: string;
+  price: string;
+};
+
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;
