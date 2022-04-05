@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { loginUserAction } from '../../store/actions';
+import { loginUserAction } from '../../../store/actions';
 
 import { StyledButton, StyledInput, ValidationError, Container, Title } from './style';
 
@@ -21,9 +21,8 @@ const Login = () => {
   } = useForm<InputsType>();
 
   const onSubmit: SubmitHandler<InputsType> = (data) => {
-    // console.log('data ', data);
     dispatch(loginUserAction(data));
-    // reset();
+    reset();
   };
 
   return (

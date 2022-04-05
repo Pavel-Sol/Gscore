@@ -1,5 +1,6 @@
 import React from 'react';
-import { ListItem } from '../icons';
+import { useRouter } from 'next/router';
+import { ListItem } from '../../icons';
 import {
   Container,
   Content,
@@ -13,6 +14,8 @@ import {
   ItemText,
   StyledBtn,
 } from './style';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 type HomeCardProps = {
   bg?: string;
@@ -20,6 +23,19 @@ type HomeCardProps = {
   title: string;
 };
 const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
+  const router = useRouter();
+  const isAuth = useSelector((state: RootState) => state.user.isAuth);
+
+  const handleGetGScore = () => {
+    if (isAuth) {
+      router.push('subscriptions');
+    } else {
+      router.push({
+        pathname: 'auth',
+        query: { price, title },
+      });
+    }
+  };
   return (
     <Container>
       <Content bg={bg}>
@@ -58,7 +74,9 @@ const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
               <ItemText>Billed annually</ItemText>
             </Item>
           </BottomList>
-          <StyledBtn color={bg}>Get Score</StyledBtn>
+          <StyledBtn onClick={handleGetGScore} color={bg}>
+            Get Score
+          </StyledBtn>
         </Bottom>
       </Content>
     </Container>

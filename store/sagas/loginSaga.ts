@@ -16,7 +16,7 @@ function* signInSaga(action: LoginUserActionType) {
       yield call(() => {
         LS.saveToken(response.data.token);
       });
-      // yield put(setActiveStep(3));
+      yield put(setActiveStep(3));
     }
   } catch (error) {
     console.log(error);

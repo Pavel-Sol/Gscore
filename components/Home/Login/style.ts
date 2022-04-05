@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Input } from '../ui';
+import { Button, Input } from '../../ui';
 
 export const Container = styled.div`
   padding: 20px 0px 220px 0px;

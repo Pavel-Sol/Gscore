@@ -1,4 +1,6 @@
-export { Stepper } from './Stepper';
-export { Register } from './Register';
-export { Login } from './Login';
-export { HomeCard } from './HomeCard';
+export { Stepper } from './Home';
+export { Register } from './Home';
+export { Login } from './Home';
+export { HomeCard } from './Home';
+export { Checkout } from './Home';
+export { StartSubscription } from './Home';

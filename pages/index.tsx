@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const token = LS.getToken();
-    console.log('Home', token);
+    // console.log('Home', token);
     if (!token) {
       dispatch(reset());
     } else {

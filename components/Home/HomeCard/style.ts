@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../ui';
+import { Button } from '../../ui';
 
 export const Container = styled.div`
   flex: 0 1 33.3%;
