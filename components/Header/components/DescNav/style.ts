@@ -104,3 +104,6 @@ export const ExtraMenuItem = styled('div')`
 export const StyledLink = styled('a')`
   margin-left: 12px;
 `;
+export const LogoutBtn = styled('p')`
+  margin: 0px 0px 0px 12px;
+`;

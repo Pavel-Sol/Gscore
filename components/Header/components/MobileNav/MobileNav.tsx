@@ -13,13 +13,15 @@ import {
   ExtraMenu,
   ExtraMenuItem,
   StyledLink,
+  LogoutBtn,
 } from './style';
 
 type MobileNavType = {
   visible: boolean;
   onToggleMobileNav: (isShow: boolean) => void;
+  onLogout: () => void;
 };
-const MobileNav: React.FC<MobileNavType> = ({ visible, onToggleMobileNav }) => {
+const MobileNav: React.FC<MobileNavType> = ({ visible, onToggleMobileNav, onLogout }) => {
   const [showExtraMenu, setShowExtraMenu] = useState(false);
   const toggleExtraMenu = () => {
     setShowExtraMenu(!showExtraMenu);
@@ -53,9 +55,7 @@ const MobileNav: React.FC<MobileNavType> = ({ visible, onToggleMobileNav }) => {
             </ExtraMenuItem>
             <ExtraMenuItem>
               <Exit />
-              <Link href="#">
-                <StyledLink>Logout</StyledLink>
-              </Link>
+              <LogoutBtn onClick={onLogout}>Logout</LogoutBtn>
             </ExtraMenuItem>
           </ExtraMenu>
         </Row>

@@ -118,3 +118,8 @@ export const StyledLink = styled('a')`
   margin: 5px 0;
   margin-left: 15px;
 `;
+
+export const LogoutBtn = styled('p')`
+  margin: 5px 0;
+  margin-left: 15px;
+`;

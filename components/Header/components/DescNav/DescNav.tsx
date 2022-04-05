@@ -1,16 +1,26 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Exit, Settings } from '../../../icons';
-import { Container, ExtraMenu, NavBar, MoreBtn, ExtraMenuItem, StyledLink } from './style';
+import {
+  Container,
+  ExtraMenu,
+  NavBar,
+  MoreBtn,
+  ExtraMenuItem,
+  StyledLink,
+  LogoutBtn,
+} from './style';
 
 type DescNavProps = {
   userName: string;
+  onLogout: () => void;
 };
-const DescNav: React.FC<DescNavProps> = ({ userName }) => {
+const DescNav: React.FC<DescNavProps> = ({ userName, onLogout }) => {
   const [showExtraMenu, setShowExtraMenu] = useState(false);
   const toggleExtraMenu = () => {
     setShowExtraMenu(!showExtraMenu);
   };
+
   return (
     <Container>
       <NavBar>
@@ -30,9 +40,7 @@ const DescNav: React.FC<DescNavProps> = ({ userName }) => {
         </ExtraMenuItem>
         <ExtraMenuItem>
           <Exit />
-          <Link href="#">
-            <StyledLink>Logout</StyledLink>
-          </Link>
+          <LogoutBtn onClick={onLogout}>Logout</LogoutBtn>
         </ExtraMenuItem>
       </ExtraMenu>
     </Container>

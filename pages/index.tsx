@@ -3,15 +3,12 @@ import React, { useEffect } from 'react';
 import { HomeCard } from '../components';
 import Link from 'next/link';
 import { LS } from '../store/services';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { reset } from '../store/reducers';
 import { authMeAction } from '../store/actions';
-import { RootState } from '../store/store';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector((state: RootState) => state.user.isAuth);
-  console.log('isAuth!!!!', isAuth);
 
   useEffect(() => {
     const token = LS.getToken();

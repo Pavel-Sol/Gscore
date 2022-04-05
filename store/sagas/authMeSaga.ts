@@ -2,7 +2,7 @@ import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { AxiosResponse } from 'axios';
 import { LoginUserActionType, AuthMeResponseType } from '../../types/types';
 import { authMeAction } from '../actions';
-import { login, setActiveStep } from '../reducers';
+import { login, reset, setActiveStep } from '../reducers';
 import { API, LS } from '../services';
 
 function* fetchAuthMe() {
@@ -11,6 +11,11 @@ function* fetchAuthMe() {
     // console.log('fetchAuthMe', response.data);
     if (response.data) {
       yield put(login({ userName: response.data.username }));
+    } else {
+      yield call(() => {
+        LS.removeToken();
+      });
+      yield put(reset());
     }
   } catch (error) {
     console.log('error', error);
