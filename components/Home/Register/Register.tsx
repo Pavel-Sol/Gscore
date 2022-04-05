@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUserAction } from '../../../store/actions';
 import { setActiveStep } from '../../../store/reducers';
+import { RootState } from '../../../store/store';
+import { Error, Loader } from '../../ui';
 
 import {
   StyledButton,
@@ -23,7 +25,8 @@ type InputsType = {
 
 const Register = () => {
   const dispatch = useDispatch();
-
+  const loading = useSelector((state: RootState) => state.user.userLoading);
+  const registerError = useSelector((state: RootState) => state.user.userError);
   const {
     register,
     handleSubmit,
@@ -40,12 +43,17 @@ const Register = () => {
     dispatch(setActiveStep(2));
   };
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <Title>Create account</Title>
       <Desc>
         You need to enter your name and email. We will send you a temporary password by email
       </Desc>
+      {registerError && <Error error={registerError} />}
       <form onSubmit={handleSubmit(onSubmit)}>
         <ValidationError>{errors.username && errors.username.message}</ValidationError>
         <StyledInput

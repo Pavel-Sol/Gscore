@@ -1,7 +1,9 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUserAction } from '../../../store/actions';
+import { RootState } from '../../../store/store';
+import { Error, Loader } from '../../ui';
 
 import { StyledButton, StyledInput, ValidationError, Container, Title } from './style';
 
@@ -12,6 +14,8 @@ type InputsType = {
 
 const Login = () => {
   const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.user.userLoading);
+  const loginError = useSelector((state: RootState) => state.user.userError);
 
   const {
     register,
@@ -25,9 +29,13 @@ const Login = () => {
     reset();
   };
 
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <Container>
       <Title>Log in</Title>
+      {loginError && <Error error={loginError} />}
       <form onSubmit={handleSubmit(onSubmit)}>
         <ValidationError>{errors.email && errors.email.message}</ValidationError>
         <StyledInput

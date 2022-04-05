@@ -4,11 +4,15 @@ type InitialUserStateType = {
   isAuth: boolean;
   userName: string;
   activeStep: 1 | 2 | 3 | 4;
+  userLoading: boolean;
+  userError: string | null;
 };
 const initialState: InitialUserStateType = {
   isAuth: false,
   userName: '',
   activeStep: 1,
+  userLoading: false,
+  userError: null,
 };
 
 const userSlice = createSlice({
@@ -26,9 +30,18 @@ const userSlice = createSlice({
       state.activeStep = 1;
       state.isAuth = false;
       state.userName = '';
+      state.userLoading = false;
+      state.userError = null;
+    },
+    setUserLoading(state, { payload }: PayloadAction<boolean>) {
+      state.userLoading = payload;
+    },
+
+    setUserError(state, { payload }: PayloadAction<null | string>) {
+      state.userError = payload;
     },
   },
 });
 
-export const { login, setActiveStep, reset } = userSlice.actions;
+export const { login, setActiveStep, reset, setUserLoading, setUserError } = userSlice.actions;
 export default userSlice.reducer;

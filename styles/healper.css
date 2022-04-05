@@ -1,8 +1,7 @@
 .test {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   flex-direction: column;
   transform: translateY(-40px);
@@ -12,6 +11,7 @@
   font-weight: 700;
   text-decoration: underline;
   height: 8px;
+  background-color: rgb(247, 151, 34);
 }
 
 input {

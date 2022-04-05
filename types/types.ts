@@ -12,6 +12,13 @@ export type RegisterRequestType = {
   username: string;
   password: string;
 };
+export type RegisterResponseType = {
+  id: number;
+  email: string;
+  username: string;
+  token: string;
+  message?: string | string[];
+};
 
 export type LoginRequestType = {
   email: string;
@@ -21,6 +28,7 @@ export type LoginRequestType = {
 export type LoginResponseType = {
   token: string;
   user: UserType;
+  message?: string | string[];
 };
 
 export type AuthMeResponseType = {
