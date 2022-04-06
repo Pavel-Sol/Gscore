@@ -3,3 +3,6 @@ export { login, setActiveStep, reset, setUserLoading, setUserError } from './use
 
 export { default as productReducer } from './productSlice';
 export { setProducts, selectProduct } from './productSlice';
+
+export { default as subscriptionReducer } from './subscriptionSlice';
+export { setSubscriptions } from './subscriptionSlice';

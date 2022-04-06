@@ -19,4 +19,8 @@ export const API = {
   buyProduct: (priceId: number) => {
     return commonInstance.post('api/payments/buy', { priceId });
   },
+
+  getSubscriptions: () => {
+    return commonInstance.get('api/subscribe/self');
+  },
 };

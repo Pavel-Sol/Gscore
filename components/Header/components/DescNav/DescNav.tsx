@@ -34,7 +34,7 @@ const DescNav: React.FC<DescNavProps> = ({ userName, onLogout }) => {
       <ExtraMenu showExtraMenu={showExtraMenu}>
         <ExtraMenuItem>
           <Settings />
-          <Link href="#">
+          <Link href="settings">
             <StyledLink>Settings</StyledLink>
           </Link>
         </ExtraMenuItem>

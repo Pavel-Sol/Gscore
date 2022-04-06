@@ -52,10 +52,6 @@ export type ProductType = {
   prices: ProductPriceType[];
 };
 
-// export type BuyProductType = {
-//   priceId: number;
-// };
-
 export type BuyProductResponseType = {
   subscribe: {
     userId: number;
@@ -66,7 +62,28 @@ export type BuyProductResponseType = {
     id: number;
   };
 };
+// ------------------------------
+// Code
+export type CodeType = {
+  id: number;
+  code: string;
+  origin: null;
+  status: string;
+  subscribeId: number;
+  userId: number;
+};
+// ------------------------------
+// Subscription
 
+export type SubscriptionType = {
+  id: number;
+  userId: number;
+  productId: number;
+  currentPeriodStart: string;
+  currentPeriodEnd: string;
+  status: string;
+  codes: CodeType[];
+};
 // ---------------------------
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;

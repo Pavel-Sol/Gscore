@@ -49,7 +49,7 @@ const MobileNav: React.FC<MobileNavType> = ({ visible, onToggleMobileNav, onLogo
           <ExtraMenu showExtraMenu={showExtraMenu}>
             <ExtraMenuItem>
               <Settings />
-              <Link href="#">
+              <Link href="settings">
                 <StyledLink>Settings</StyledLink>
               </Link>
             </ExtraMenuItem>
