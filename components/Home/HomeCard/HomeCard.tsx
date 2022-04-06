@@ -16,24 +16,27 @@ import {
 } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
-import { setTariff } from '../../../store/reducers';
+import { selectProduct, setActiveStep } from '../../../store/reducers';
+import { ProductType } from '../../../types/types';
 
 type HomeCardProps = {
-  bg?: string;
-  price: string;
-  title: string;
+  index: number;
+  product: ProductType;
 };
-const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
+const HomeCard: React.FC<HomeCardProps> = ({ index, product }) => {
   const router = useRouter();
   const isAuth = useSelector((state: RootState) => state.user.isAuth);
   const dispatch = useDispatch();
+  const bg = index === 1 ? 'rgba(252, 88, 66, 1)' : 'rgba(39, 39, 39, 1)';
 
-  const handleGetGScore = () => {
-    dispatch(setTariff({ price, title }));
+  const handleSelectProduct = () => {
+    dispatch(selectProduct(product));
 
     if (isAuth) {
-      router.push('subscriptions');
+      dispatch(setActiveStep(3));
+      router.push('auth');
     } else {
+      dispatch(setActiveStep(1));
       router.push('auth');
     }
   };
@@ -41,8 +44,8 @@ const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
     <Container>
       <Content bg={bg}>
         <Heading>
-          <Price>{`$${price}`}</Price>
-          <Title>{title}</Title>
+          <Price>{`$${product.prices[0].price}`}</Price>
+          <Title>{product.name}</Title>
           <Desc>
             Get the advanced WordPress plugin that optimizes content with GSC keywords at one low
             annual price
@@ -54,7 +57,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
               <div>
                 <ListItem stroke={bg} />
               </div>
-              <ItemText>{title}</ItemText>
+              <ItemText>{product.name}</ItemText>
             </Item>
             <Item>
               <div>
@@ -75,7 +78,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ bg, price, title }) => {
               <ItemText>Billed annually</ItemText>
             </Item>
           </BottomList>
-          <StyledBtn onClick={handleGetGScore} color={bg}>
+          <StyledBtn onClick={handleSelectProduct} color={bg}>
             Get Score
           </StyledBtn>
         </Bottom>

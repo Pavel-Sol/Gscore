@@ -36,11 +36,23 @@ export type AuthMeResponseType = {
   email: string;
   username: string;
 };
-
-export type TariffType = {
-  title: string;
+// ------------------------------
+// Product
+export type ProductPriceType = {
+  id: number;
+  isActive: boolean;
+  productId: number;
   price: string;
 };
 
+export type ProductType = {
+  id: number;
+  sitesCount: number;
+  name: string;
+  prices: ProductPriceType[];
+};
+
+
+// ---------------------------
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;

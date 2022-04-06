@@ -11,4 +11,8 @@ export const API = {
   authMe: () => {
     return commonInstance.get('api/users/me');
   },
+
+  getProducts: () => {
+    return commonInstance.get('api/products');
+  },
 };

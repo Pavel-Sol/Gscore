@@ -14,7 +14,7 @@ import {
 } from './style';
 
 const StartSubscription = () => {
-  const tariff = useSelector((state: RootState) => state.subscription.tariff);
+  const selectedProduct = useSelector((state: RootState) => state.product.selectedProduct);
   const router = useRouter();
   return (
     <Container>
@@ -29,8 +29,8 @@ const StartSubscription = () => {
           <TariffRowTitle>Price</TariffRowTitle>
         </TariffRow>
         <TariffRow>
-          <p>{tariff?.title}</p>
-          <p>${tariff?.price}</p>
+          <p>{selectedProduct?.name}</p>
+          <p>${selectedProduct?.prices[0].price}</p>
         </TariffRow>
       </TariffContainer>
       <StyledBtn onClick={() => router.push('subscriptions')}>Go to my subscriptions</StyledBtn>

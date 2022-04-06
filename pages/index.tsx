@@ -3,16 +3,18 @@ import React, { useEffect } from 'react';
 import { HomeCard } from '../components';
 import Link from 'next/link';
 import { LS } from '../store/services';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../store/reducers';
-import { authMeAction } from '../store/actions';
+import { authMeAction, getProductsAction } from '../store/actions';
+import { RootState } from '../store/store';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.product.products);
+  console.log(products);
 
   useEffect(() => {
     const token = LS.getToken();
-    // console.log('Home', token);
     if (!token) {
       dispatch(reset());
     } else {
@@ -20,13 +22,18 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    dispatch(getProductsAction());
+  }, []);
+
   return (
     <>
       <Title>Get started with Gscore today!</Title>
       <HomeCardList>
-        <HomeCard price="77" title="Single site license" />
-        <HomeCard bg="rgba(252, 88, 66, 1)" price="117" title="3 Site license" />
-        <HomeCard price="167" title="10 Site license" />
+        {products.length > 0 &&
+          products.map((el, index) => {
+            return <HomeCard key={el.id} product={el} index={index} />;
+          })}
       </HomeCardList>
       <ContactUs>
         <p>Have more than 10 sites?</p>

@@ -13,9 +13,8 @@ import {
   StyledBtn,
 } from './style';
 
-
 const Checkout = () => {
-  const tariff = useSelector((state: RootState) => state.subscription.tariff);
+  const selectedProduct = useSelector((state: RootState) => state.product.selectedProduct);
   const dispatch = useDispatch();
   const handleNextStep = () => {
     dispatch(setActiveStep(4));
@@ -30,13 +29,13 @@ const Checkout = () => {
           <TariffRowTitle>Price</TariffRowTitle>
         </TariffRow>
         <TariffRow>
-          <p>{tariff?.title}</p>
-          <p>${tariff?.price}</p>
+          <p>{selectedProduct?.name}</p>
+          <p>${selectedProduct?.prices[0].price}</p>
         </TariffRow>
       </TariffContainer>
       <Total>
         <TotalText>Total:</TotalText>
-        <TotalText>${tariff?.price}</TotalText>
+        <TotalText>${selectedProduct?.prices[0].price}</TotalText>
       </Total>
       <StyledBtn onClick={handleNextStep}>Purchase</StyledBtn>
     </Container>
