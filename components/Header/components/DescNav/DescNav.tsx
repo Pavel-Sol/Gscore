@@ -24,7 +24,7 @@ const DescNav: React.FC<DescNavProps> = ({ userName, onLogout }) => {
   return (
     <Container>
       <NavBar>
-        <Link href="#">
+        <Link href="subscriptions">
           <a>My subscriptions</a>
         </Link>
         <MoreBtn onClick={toggleExtraMenu} showExtraMenu={showExtraMenu}>

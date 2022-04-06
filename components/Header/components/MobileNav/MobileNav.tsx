@@ -38,7 +38,7 @@ const MobileNav: React.FC<MobileNavType> = ({ visible, onToggleMobileNav, onLogo
           </LogoWrap>
         </Heading>
         <Row>
-          <Link href="#">
+          <Link href="subscriptions">
             <a>My subscriptions</a>
           </Link>
         </Row>

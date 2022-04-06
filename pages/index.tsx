@@ -11,7 +11,6 @@ import { RootState } from '../store/store';
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.product.products);
-  // console.log(products);
 
   useEffect(() => {
     const token = LS.getToken();
