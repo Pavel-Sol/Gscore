@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { buyProductAction } from '../../../store/actions';
 import { setActiveStep } from '../../../store/reducers';
 import { RootState } from '../../../store/store';
 import {
@@ -16,8 +17,13 @@ import {
 const Checkout = () => {
   const selectedProduct = useSelector((state: RootState) => state.product.selectedProduct);
   const dispatch = useDispatch();
-  const handleNextStep = () => {
-    dispatch(setActiveStep(4));
+  const handleBuyProduct = () => {
+    const priceId = selectedProduct?.prices[0].id;
+    if (priceId) {
+      console.log('priceId ', priceId);
+      dispatch(buyProductAction(priceId));
+      dispatch(setActiveStep(4));
+    }
   };
 
   return (
@@ -37,7 +43,7 @@ const Checkout = () => {
         <TotalText>Total:</TotalText>
         <TotalText>${selectedProduct?.prices[0].price}</TotalText>
       </Total>
-      <StyledBtn onClick={handleNextStep}>Purchase</StyledBtn>
+      <StyledBtn onClick={handleBuyProduct}>Purchase</StyledBtn>
     </Container>
   );
 };

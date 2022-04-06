@@ -1,4 +1,4 @@
-import { registerUserAction, loginUserAction } from '../store/actions';
+import { registerUserAction, loginUserAction, buyProductAction } from '../store/actions';
 
 export type UserType = {
   id: number;
@@ -52,7 +52,22 @@ export type ProductType = {
   prices: ProductPriceType[];
 };
 
+// export type BuyProductType = {
+//   priceId: number;
+// };
+
+export type BuyProductResponseType = {
+  subscribe: {
+    userId: number;
+    productId: number;
+    currentPeriodStart: number;
+    currentPeriodEnd: number;
+    status: string;
+    id: number;
+  };
+};
 
 // ---------------------------
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;
+export type BuyProductActionType = ReturnType<typeof buyProductAction>;
