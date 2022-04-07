@@ -8,3 +8,5 @@ export { StartSubscription } from './Home';
 export { ModeController } from './Settings';
 export { PersonalInfoForm } from './Settings';
 export { ChangePassForm } from './Settings';
+
+export { Slider } from './Subscriptions';

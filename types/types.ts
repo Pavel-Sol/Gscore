@@ -95,17 +95,18 @@ export type CodeType = {
   subscribeId: number;
   userId: number;
 };
-// ------------------------------
+// -----------------------------------------
 // Subscription
 
 export type SubscriptionType = {
+  codes: CodeType[];
   id: number;
   userId: number;
   productId: number;
   currentPeriodStart: string;
   currentPeriodEnd: string;
   status: string;
-  codes: CodeType[];
+  product: ProductType;
 };
 // ---------------------------
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
