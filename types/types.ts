@@ -1,4 +1,10 @@
-import { registerUserAction, loginUserAction, buyProductAction } from '../store/actions';
+import {
+  registerUserAction,
+  loginUserAction,
+  buyProductAction,
+  personalInfoAction,
+  changePassAction,
+} from '../store/actions';
 
 export type UserType = {
   id: number;
@@ -36,9 +42,25 @@ export type AuthMeResponseType = {
   email: string;
   username: string;
 };
+
+export type PersonalInfoRequestType = {
+  email: string;
+  username: string;
+};
+export type ChangeInfoResponseType = {
+  id: number;
+  email: string;
+  username: string;
+};
+
+export type ChangePassRequestType = {
+  currentPassword: string;
+  newPassword: string;
+};
+
 // ------------------------------
 // Product
-export type ProductPriceType = {
+type ProductPriceType = {
   id: number;
   isActive: boolean;
   productId: number;
@@ -88,3 +110,5 @@ export type SubscriptionType = {
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;
 export type BuyProductActionType = ReturnType<typeof buyProductAction>;
+export type PersonalInfoActionType = ReturnType<typeof personalInfoAction>;
+export type ChangePassActionType = ReturnType<typeof changePassAction>;

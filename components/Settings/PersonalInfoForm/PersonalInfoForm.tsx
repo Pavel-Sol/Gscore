@@ -1,14 +1,20 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { personalInfoAction } from '../../../store/actions';
+import { RootState } from '../../../store/store';
+import { Error, Loader } from '../../ui';
 import { Container, StyledButton, StyledInput, Title, ValidationError } from './style';
 
 type InputsType = {
   email: string;
-  userName: string;
+  username: string;
 };
 
 const PersonalInfoForm = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.user.userLoading);
+
   const {
     register,
     handleSubmit,
@@ -17,9 +23,14 @@ const PersonalInfoForm = () => {
   } = useForm<InputsType>();
 
   const onSubmit: SubmitHandler<InputsType> = (data) => {
-    console.log(data);
-    // reset();
+    dispatch(personalInfoAction(data));
+    reset();
   };
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <Title>Personal Info</Title>
@@ -32,10 +43,10 @@ const PersonalInfoForm = () => {
             required: 'field cannot be empty',
           })}
         />
-        <ValidationError>{errors.userName && errors.userName.message}</ValidationError>
+        <ValidationError>{errors.username && errors.username.message}</ValidationError>
         <StyledInput
           placeholder="Username"
-          {...register('userName', {
+          {...register('username', {
             required: 'field cannot be empty',
             minLength: {
               value: 3,

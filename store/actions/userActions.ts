@@ -1,5 +1,10 @@
 import { createAction } from '@reduxjs/toolkit';
-import { LoginRequestType, RegisterRequestType } from '../../types/types';
+import {
+  LoginRequestType,
+  RegisterRequestType,
+  PersonalInfoRequestType,
+  ChangePassRequestType,
+} from '../../types/types';
 
 export const registerUserAction = createAction('registerUser', (user: RegisterRequestType) => {
   return {
@@ -18,3 +23,19 @@ export const loginUserAction = createAction('loginUser', (user: LoginRequestType
 });
 
 export const authMeAction = createAction('authMe');
+
+export const personalInfoAction = createAction('personalInfo', (data: PersonalInfoRequestType) => {
+  return {
+    payload: {
+      data,
+    },
+  };
+});
+
+export const changePassAction = createAction('changePass', (data: ChangePassRequestType) => {
+  return {
+    payload: {
+      data,
+    },
+  };
+});

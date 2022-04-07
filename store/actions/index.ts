@@ -1,4 +1,10 @@
-export { registerUserAction, loginUserAction, authMeAction } from './userActions';
+export {
+  registerUserAction,
+  loginUserAction,
+  authMeAction,
+  personalInfoAction,
+  changePassAction,
+} from './userActions';
 
 export { getProductsAction, buyProductAction } from './productAction';
 

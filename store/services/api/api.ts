@@ -1,4 +1,9 @@
-import { RegisterRequestType, LoginRequestType } from './../../../types/types';
+import {
+  RegisterRequestType,
+  LoginRequestType,
+  PersonalInfoRequestType,
+  ChangePassRequestType,
+} from './../../../types/types';
 import { authInstance, commonInstance } from './instance';
 
 export const API = {
@@ -22,5 +27,12 @@ export const API = {
 
   getSubscriptions: () => {
     return commonInstance.get('api/subscribe/self');
+  },
+  changePersonalInfo: (data: PersonalInfoRequestType) => {
+    return commonInstance.patch('api/users', data);
+  },
+
+  changePassword: (data: ChangePassRequestType) => {
+    return commonInstance.patch('api/users/update-password', data);
   },
 };

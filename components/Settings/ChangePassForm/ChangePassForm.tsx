@@ -1,6 +1,9 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { changePassAction } from '../../../store/actions';
+import { RootState } from '../../../store/store';
+import { Error, Loader } from '../../ui';
 import { Container, StyledButton, StyledInput, Title, ValidationError } from './style';
 
 type InputsType = {
@@ -9,6 +12,10 @@ type InputsType = {
 };
 
 const ChangePassForm = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.user.userLoading);
+  const error = useSelector((state: RootState) => state.user.userError);
+
   const {
     register,
     handleSubmit,
@@ -17,12 +24,18 @@ const ChangePassForm = () => {
   } = useForm<InputsType>();
 
   const onSubmit: SubmitHandler<InputsType> = (data) => {
-    console.log(data);
-    // reset();
+    dispatch(changePassAction(data));
+    reset();
   };
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <Title>Change password</Title>
+      {error && <Error error={error} />}
       <form onSubmit={handleSubmit(onSubmit)}>
         <ValidationError>
           {errors.currentPassword && errors.currentPassword.message}
