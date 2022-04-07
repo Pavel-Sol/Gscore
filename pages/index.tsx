@@ -3,14 +3,28 @@ import React, { useEffect } from 'react';
 import { HomeCard } from '../components';
 import Link from 'next/link';
 import { LS } from '../store/services';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { reset } from '../store/reducers';
 import { authMeAction, getProductsAction } from '../store/actions';
-import { RootState } from '../store/store';
+import axios from 'axios';
+import { ProductType } from '../types/types';
 
-const Home: React.FC = () => {
+export const getServerSideProps = async () => {
+  const response = await axios.get('https://gscore-back.herokuapp.com/api/products');
+
+  if (response.data) {
+    return {
+      props: { products: response.data },
+    };
+  }
+};
+
+type HomeProps = {
+  products: ProductType[];
+};
+
+const Home: React.FC<HomeProps> = ({ products }) => {
   const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.product.products);
 
   useEffect(() => {
     const token = LS.getToken();

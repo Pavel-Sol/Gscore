@@ -23,9 +23,9 @@ const Header: React.FC<HeaderProps> = () => {
   };
 
   const handleLogout = () => {
+    router.push('/');
     LS.removeToken();
     dispatch(reset());
-    router.push('auth');
   };
 
   return (
@@ -34,14 +34,16 @@ const Header: React.FC<HeaderProps> = () => {
         <LogoWrap>
           <Image src="/img/Logo.png" layout="fill" objectFit="cover" />
         </LogoWrap>
-        {isAuth && <DescNav userName={userName} onLogout={handleLogout} />}
-        {isAuth && <Burger onToggleMobileNav={toggleMobileNav} />}
         {isAuth && (
-          <MobileNav
-            visible={isShowMobileNav}
-            onToggleMobileNav={toggleMobileNav}
-            onLogout={handleLogout}
-          />
+          <>
+            <DescNav userName={userName} onLogout={handleLogout} />
+            <Burger onToggleMobileNav={toggleMobileNav} />
+            <MobileNav
+              visible={isShowMobileNav}
+              onToggleMobileNav={toggleMobileNav}
+              onLogout={handleLogout}
+            />
+          </>
         )}
       </Container>
     </StyledHeader>
