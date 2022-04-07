@@ -34,7 +34,8 @@ export type LoginRequestType = {
 export type LoginResponseType = {
   token: string;
   user: UserType;
-  message?: string | string[];
+  username: string;
+  email: string;
 };
 
 export type AuthMeResponseType = {

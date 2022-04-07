@@ -14,7 +14,9 @@ function* signInSaga(action: LoginUserActionType) {
     );
 
     if (response.data) {
-      yield put(login({ userName: response.data.user.username }));
+      yield put(
+        login({ userName: response.data.user.username, userEmail: response.data.user.email }),
+      );
       yield call(() => {
         LS.saveToken(response.data.token);
       });

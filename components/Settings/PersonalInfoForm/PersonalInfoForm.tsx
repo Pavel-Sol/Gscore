@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { personalInfoAction } from '../../../store/actions';
@@ -14,13 +14,23 @@ type InputsType = {
 const PersonalInfoForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state: RootState) => state.user.userLoading);
+  const defaultName = useSelector((state: RootState) => state.user.userName);
+  const defaultEmail = useSelector((state: RootState) => state.user.userEmail);
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<InputsType>();
+
+  useEffect(() => {
+    if (defaultName && defaultEmail) {
+      setValue('username', defaultName);
+      setValue('email', defaultEmail);
+    }
+  }, [defaultName, defaultEmail]);
 
   const onSubmit: SubmitHandler<InputsType> = (data) => {
     dispatch(personalInfoAction(data));

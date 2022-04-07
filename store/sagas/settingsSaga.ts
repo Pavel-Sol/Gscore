@@ -17,7 +17,7 @@ function* changePersonalInfoSaga(action: PersonalInfoActionType) {
     );
 
     if (response.data) {
-      yield put(login({ userName: response.data.username }));
+      yield put(login({ userName: response.data.username, userEmail: response.data.email }));
     }
   } catch (error: any) {
     console.log(error);
