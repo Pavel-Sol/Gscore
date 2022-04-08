@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../ui';
+import { SubscriptionType } from '../../../types/types';
 import {
   Container,
   Heading,
@@ -11,19 +11,27 @@ import {
   Price,
   Period,
   StyledBtn,
+  DarkCover,
 } from './style';
 
-const SliderCard = () => {
+type SliderCardProps = {
+  index: number;
+  curIndex: number;
+  data: SubscriptionType;
+};
+
+const SliderCard: React.FC<SliderCardProps> = ({ index, curIndex, data }) => {
   return (
     <Container>
+      {curIndex !== index && <DarkCover />}
       <Heading>
-        <Label>Gscore</Label>
-        <Status>Active</Status>
+        <Label>CScore</Label>
+        <Status>{data.status}</Status>
       </Heading>
       <Bottom>
         <Row>
-          <ProductName>Single site license</ProductName>
-          <Price>$77</Price>
+          <ProductName>{data.product.name}</ProductName>
+          <Price>${data.product.prices[0].price}</Price>
         </Row>
         <Period>valid until 21.10.2022</Period>
         <StyledBtn mode="secondary">View</StyledBtn>

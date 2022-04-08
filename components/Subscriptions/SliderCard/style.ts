@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Button } from '../../ui';
 
 export const Container = styled.div`
+  position: relative;
   width: 620px;
   height: 334px;
   border-radius: 12px;
@@ -12,6 +13,15 @@ export const Container = styled.div`
     width: 318px;
     height: 268px;
   }
+`;
+export const DarkCover = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  too: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
 `;
 
 export const Heading = styled.div`
@@ -35,13 +45,18 @@ export const Status = styled.p`
   font-size: 1.3rem;
   color: #05c168;
   font-weight: 700;
+  text-transform: lowercase;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const Bottom = styled.div`
   flex: 68%;
-  padding: 32px 81px 32px 32px;
+  padding: 32px 55px 32px 32px;
   @media (max-width: 768px) {
-    padding: 16px 51px 16px 16px;
+    padding: 16px 40px 16px 16px;
   }
 `;
 

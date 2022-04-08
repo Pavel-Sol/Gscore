@@ -6,3 +6,5 @@ export { Facebook } from './Facebook';
 export { Twitter } from './Twitter';
 export { LinkedIn } from './LinkedIn';
 export { ListItem } from './ListItem';
+export { ArrowLeft } from './ArrowLeft';
+export { ArrowRight } from './ArrowRight';

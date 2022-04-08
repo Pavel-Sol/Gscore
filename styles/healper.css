@@ -1,7 +1,5 @@
 .test {
   display: flex;
-  flex-direction: column;
-
   align-items: center;
   justify-content: space-between;
 
@@ -14,10 +12,17 @@
   text-decoration: underline;
   height: 8px;
   background-color: rgb(247, 151, 34);
+
+  overflow: hidden;
+
+  transform: translateX(-620px);
+  transition: all 0.3s ease;
 }
 
 input {
   outline: none;
+
+  text-transform: uppercase;
 }
 
 /* .test2: :nth-child(2) */
