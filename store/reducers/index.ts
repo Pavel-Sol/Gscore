@@ -6,3 +6,6 @@ export { setProducts, selectProduct } from './productSlice';
 
 export { default as subscriptionReducer } from './subscriptionSlice';
 export { setSubscriptions } from './subscriptionSlice';
+
+export { default as codeReducer } from './codeSlice';
+export { setCodes } from './codeSlice';

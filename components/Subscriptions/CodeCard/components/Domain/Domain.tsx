@@ -2,15 +2,13 @@ import React from 'react';
 import { Container, Title, Field, FieldText } from './style';
 
 type DomainProps = {
-  text?: string;
+  domain: string | null;
 };
-const Domain: React.FC<DomainProps> = ({ text }) => {
+const Domain: React.FC<DomainProps> = ({ domain }) => {
   return (
     <Container>
       <Title>Domain</Title>
-      <Field>
-        <FieldText defaultValue={text} disabled />
-      </Field>
+      <Field>{domain && <FieldText defaultValue={domain} disabled />}</Field>
     </Container>
   );
 };

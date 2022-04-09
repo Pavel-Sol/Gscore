@@ -1,18 +1,19 @@
 import React from 'react';
+import { CodeType } from '../../../types/types';
 import { Checkbox, License, Domain, Status } from './components';
 import { Container, StaledBtn } from './style';
 
-const CodeCard = () => {
-  const licenseText = 't t ee st text test xt test text 555555 555555';
-  const domainText = 'domain domain domain domain domain domain';
-  const status = 'ACTIVE';
+type CodeCardProps = {
+  codeInfo: CodeType;
+};
+const CodeCard: React.FC<CodeCardProps> = ({ codeInfo }) => {
   return (
     <Container>
       <Checkbox />
-      <License text={licenseText} />
-      <Domain text={domainText} />
-      {/* {status === 'INACTIVE' && <StaledBtn mode="secondary">Activate</StaledBtn>} */}
-      <Status status={status} />
+      <License license={codeInfo.code} />
+      <Domain domain={codeInfo.origin} />
+      {codeInfo.status === 'INACTIVE' && <StaledBtn mode="secondary">Activate</StaledBtn>}
+      <Status status={codeInfo.status} />
     </Container>
   );
 };

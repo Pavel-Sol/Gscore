@@ -90,7 +90,7 @@ export type BuyProductResponseType = {
 export type CodeType = {
   id: number;
   code: string;
-  origin: null;
+  origin: null | string;
   status: string;
   subscribeId: number;
   userId: number;

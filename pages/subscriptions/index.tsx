@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSubscriptionsAction } from '../../store/actions';
+import { getCodesAction, getSubscriptionsAction } from '../../store/actions';
 import { RootState } from '../../store/store';
 import { CodeCard, Slider } from '../../components';
 import { SubscriptionType } from '../../types/types';
@@ -9,7 +9,9 @@ import { SubscriptionType } from '../../types/types';
 const Subscriptions = () => {
   const dispatch = useDispatch();
   const subscriptions = useSelector((state: RootState) => state.subscription.subscriptions);
+  const allCodes = useSelector((state: RootState) => state.code.codes);
   const [curSubscription, setCurSubscription] = useState<SubscriptionType>(subscriptions[0]);
+  const codesBySubs = allCodes.filter((el) => el.subscribeId === curSubscription.id);
 
   const selectCurSubscription = (ind: number) => {
     setCurSubscription(subscriptions[ind]);
@@ -17,18 +19,17 @@ const Subscriptions = () => {
 
   useEffect(() => {
     dispatch(getSubscriptionsAction());
+    dispatch(getCodesAction());
   }, []);
-
-  useEffect(() => {
-    // console.log(curSubscription);
-  }, [curSubscription]);
 
   return (
     <>
       <Title>My Subscriptions</Title>
       <Slider subscriptions={subscriptions} onSelectCurSubscription={selectCurSubscription} />
       <>
-        <CodeCard />
+        {codesBySubs.map((code) => {
+          return <CodeCard key={code.id} codeInfo={code} />;
+        })}
       </>
     </>
   );

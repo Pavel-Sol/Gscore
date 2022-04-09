@@ -4,15 +4,15 @@ import { Copy } from '../../../../icons';
 import { Container, Title, Field, FieldText, CopyBtn } from './style';
 
 type LicenseProps = {
-  text: string;
+  license: string;
 };
-const License: React.FC<LicenseProps> = ({ text }) => {
-  const [isCopied, setCopied] = useClipboard(text);
+const License: React.FC<LicenseProps> = ({ license }) => {
+  const [isCopied, setCopied] = useClipboard(license);
   return (
     <Container>
       <Title>License code</Title>
       <Field>
-        <FieldText defaultValue={text} disabled />
+        <FieldText defaultValue={license} disabled />
         <CopyBtn onClick={setCopied}>
           <Copy />
         </CopyBtn>

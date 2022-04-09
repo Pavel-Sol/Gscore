@@ -9,3 +9,5 @@ export {
 export { getProductsAction, buyProductAction } from './productAction';
 
 export { getSubscriptionsAction } from './subscriptionAction';
+
+export { getCodesAction } from './codeActions';

@@ -6,6 +6,7 @@ import {
   productsSaga,
   subscriptionSaga,
   settingsSaga,
+  codeSaga,
 } from './sagas';
 
 export default function* rootSaga() {
@@ -16,5 +17,6 @@ export default function* rootSaga() {
     productsSaga(),
     subscriptionSaga(),
     settingsSaga(),
+    codeSaga(),
   ]);
 }

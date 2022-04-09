@@ -6,10 +6,12 @@ export const Container = styled.div`
   border-radius: 12px;
   padding: 24px 50px 24px 32px;
   display: flex;
+  margin-bottom: 32px;
   @media (max-width: 768px) {
     flex-flow: wrap;
     padding: 32px 20px;
     align-items: center;
+    margin-bottom: 24px;
   }
 `;
 

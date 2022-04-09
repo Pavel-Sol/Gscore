@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
-import { productReducer, userReducer, subscriptionReducer } from './reducers';
+import { productReducer, userReducer, subscriptionReducer, codeReducer } from './reducers';
 import {
   persistStore,
   persistReducer,
@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   product: productReducer,
   subscription: subscriptionReducer,
+  code: codeReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

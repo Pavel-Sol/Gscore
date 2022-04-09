@@ -35,4 +35,8 @@ export const API = {
   changePassword: (data: ChangePassRequestType) => {
     return commonInstance.patch('api/users/update-password', data);
   },
+
+  getCodes: () => {
+    return commonInstance.get('api/code/self');
+  },
 };
