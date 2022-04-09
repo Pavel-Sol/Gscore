@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSubscriptionsAction } from '../../store/actions';
 import { RootState } from '../../store/store';
-import { Slider } from '../../components';
+import { CodeCard, Slider } from '../../components';
 import { SubscriptionType } from '../../types/types';
 
 const Subscriptions = () => {
@@ -27,6 +27,9 @@ const Subscriptions = () => {
     <>
       <Title>My Subscriptions</Title>
       <Slider subscriptions={subscriptions} onSelectCurSubscription={selectCurSubscription} />
+      <>
+        <CodeCard />
+      </>
     </>
   );
 };

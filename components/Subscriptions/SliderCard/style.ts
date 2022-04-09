@@ -42,7 +42,7 @@ export const Label = styled.p`
 `;
 
 export const Status = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #05c168;
   font-weight: 700;
   text-transform: lowercase;

@@ -17,6 +17,10 @@
 
   transform: translateX(-620px);
   transition: all 0.3s ease;
+
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  flex-shrink: 1;
 }
 
 input {
