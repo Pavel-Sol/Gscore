@@ -10,8 +10,10 @@ type CodeCardProps = {
 };
 
 const CodeCard: React.FC<CodeCardProps> = ({ codeInfo }) => {
+  // console.log('codeInfo ', codeInfo);
   const dispatch = useDispatch();
   const handleActivate = () => {
+    // console.log('codeInfo.code ', codeInfo.code);
     dispatch(activateCodeAction(codeInfo.code));
   };
   return (
