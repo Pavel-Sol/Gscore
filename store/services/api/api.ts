@@ -3,6 +3,7 @@ import {
   LoginRequestType,
   PersonalInfoRequestType,
   ChangePassRequestType,
+  ActivateCodeRequestType,
 } from './../../../types/types';
 import { authInstance, commonInstance } from './instance';
 
@@ -38,5 +39,9 @@ export const API = {
 
   getCodes: () => {
     return commonInstance.get('api/code/self');
+  },
+
+  activateCode: (code: ActivateCodeRequestType) => {
+    return commonInstance.post('api/code/activate', code);
   },
 };

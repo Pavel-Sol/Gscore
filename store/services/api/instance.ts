@@ -10,7 +10,7 @@ export const commonInstance = axios.create({
 
 commonInstance.interceptors.request.use((config) => {
   const token = LS.getToken();
-  // console.log('commonInstance token ', token);
+
   if (!config.headers) {
     config.headers = {};
   }

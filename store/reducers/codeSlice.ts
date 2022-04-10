@@ -15,8 +15,17 @@ const codeSlice = createSlice({
     setCodes(state, { payload }: PayloadAction<CodeType[]>) {
       state.codes = payload;
     },
+    activateCode(state, { payload }: PayloadAction<CodeType>) {
+      state.codes = state.codes.map((el) => {
+        if (el.id === payload.id) {
+          return payload;
+        } else {
+          return el;
+        }
+      });
+    },
   },
 });
 
-export const { setCodes } = codeSlice.actions;
+export const { setCodes, activateCode } = codeSlice.actions;
 export default codeSlice.reducer;
