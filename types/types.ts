@@ -5,6 +5,7 @@ import {
   personalInfoAction,
   changePassAction,
   activateCodeAction,
+  upgradeSubAction,
 } from '../store/actions';
 
 export type UserType = {
@@ -113,6 +114,11 @@ export type SubscriptionType = {
   status: string;
   product: ProductType;
 };
+
+export type UpgradeSubRequestType = {
+  productId: number;
+  subscribeId: number;
+};
 // ---------------------------
 export type RegisterUserActionType = ReturnType<typeof registerUserAction>;
 export type LoginUserActionType = ReturnType<typeof loginUserAction>;
@@ -120,3 +126,4 @@ export type BuyProductActionType = ReturnType<typeof buyProductAction>;
 export type PersonalInfoActionType = ReturnType<typeof personalInfoAction>;
 export type ChangePassActionType = ReturnType<typeof changePassAction>;
 export type ActivateCodeActionType = ReturnType<typeof activateCodeAction>;
+export type UpgradeSubActionType = ReturnType<typeof upgradeSubAction>;

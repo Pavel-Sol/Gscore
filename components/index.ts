@@ -2,4 +2,4 @@ export { Stepper, StartSubscription, Checkout, HomeCard, Login, Register } from 
 
 export { ModeController, PersonalInfoForm, ChangePassForm } from './Settings';
 
-export { Slider, CodeCard, NoSubscriptions } from './Subscriptions';
+export { Slider, CodeCard, NoSubscriptions, UpgradeSubs } from './Subscriptions';

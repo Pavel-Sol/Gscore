@@ -4,6 +4,7 @@ import {
   PersonalInfoRequestType,
   ChangePassRequestType,
   ActivateCodeRequestType,
+  UpgradeSubRequestType,
 } from './../../../types/types';
 import { authInstance, commonInstance } from './instance';
 
@@ -29,6 +30,11 @@ export const API = {
   getSubscriptions: () => {
     return commonInstance.get('api/subscribe/self');
   },
+
+  upgradeSubscription: (data: UpgradeSubRequestType) => {
+    return commonInstance.post('api/subscribe/change-product', data);
+  },
+
   changePersonalInfo: (data: PersonalInfoRequestType) => {
     return commonInstance.patch('api/users', data);
   },

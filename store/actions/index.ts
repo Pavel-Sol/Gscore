@@ -8,6 +8,6 @@ export {
 
 export { getProductsAction, buyProductAction } from './productAction';
 
-export { getSubscriptionsAction } from './subscriptionAction';
+export { getSubscriptionsAction, upgradeSubAction } from './subscriptionAction';
 
 export { getCodesAction, activateCodeAction } from './codeActions';
