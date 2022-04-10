@@ -8,8 +8,9 @@ import { Container, Title, Radio, Item } from './style';
 
 type UpgradeSubsProps = {
   curSubscription: SubscriptionType;
+  oneCloseModal: () => void;
 };
-const UpgradeSubs: React.FC<UpgradeSubsProps> = ({ curSubscription }) => {
+const UpgradeSubs: React.FC<UpgradeSubsProps> = ({ curSubscription, oneCloseModal }) => {
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.product.products);
   const availableProducts = products.filter((el) => el.id !== curSubscription.product.id);
@@ -26,6 +27,7 @@ const UpgradeSubs: React.FC<UpgradeSubsProps> = ({ curSubscription }) => {
         }),
       );
     }
+    oneCloseModal();
   };
 
   return (

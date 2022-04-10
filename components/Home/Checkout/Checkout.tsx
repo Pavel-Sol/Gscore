@@ -20,7 +20,6 @@ const Checkout = () => {
   const handleBuyProduct = () => {
     const priceId = selectedProduct?.prices[0].id;
     if (priceId) {
-      console.log('priceId ', priceId);
       dispatch(buyProductAction(priceId));
       dispatch(setActiveStep(4));
     }

@@ -8,10 +8,9 @@ import { reset } from '../store/reducers';
 import { authMeAction, getProductsAction } from '../store/actions';
 import axios from 'axios';
 import { ProductType } from '../types/types';
-import { GetServerSidePropsContext } from 'next';
 
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  // console.log(context.req);
+
+export const getServerSideProps = async () => {
   const response = await axios.get('https://gscore-back.herokuapp.com/api/products');
 
   if (response.data) {

@@ -18,7 +18,6 @@ function* activateCodeSaga(action: ActivateCodeActionType) {
   try {
     const response: AxiosResponse<CodeType> = yield call(() => API.activateCode(action.payload));
 
-    // console.log('activateCodeSaga ', response.data);
     if (response.data) {
       yield put(activateCode(response.data));
     }

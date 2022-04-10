@@ -39,7 +39,7 @@ const Subscriptions = () => {
   return (
     <>
       <Modal visible={isShowModal} oneCloseModal={closeModal}>
-        <UpgradeSubs curSubscription={curSubscription} />
+        <UpgradeSubs curSubscription={curSubscription} oneCloseModal={closeModal} />
       </Modal>
       <Heading>
         <Title>My Subscriptions</Title>

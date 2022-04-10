@@ -10,15 +10,15 @@ type CodeCardProps = {
 };
 
 const CodeCard: React.FC<CodeCardProps> = ({ codeInfo }) => {
-  // console.log('codeInfo ', codeInfo);
   const dispatch = useDispatch();
+
   const handleActivate = () => {
-    // console.log('codeInfo.code ', codeInfo.code);
     dispatch(activateCodeAction(codeInfo.code));
   };
+
   return (
     <Container>
-      <Checkbox />
+      <Checkbox disabled={codeInfo.status !== 'HOLD'} />
       <License license={codeInfo.code} />
       <Domain domain={codeInfo.origin} />
       {codeInfo.status === 'INACTIVE' && (
