@@ -8,4 +8,4 @@ export { default as subscriptionReducer } from './subscriptionSlice';
 export { setSubscriptions } from './subscriptionSlice';
 
 export { default as codeReducer } from './codeSlice';
-export { setCodes, activateCode } from './codeSlice';
+export { setCodes, activateCode, setError } from './codeSlice';

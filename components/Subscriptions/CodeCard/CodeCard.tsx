@@ -7,18 +7,27 @@ import { Container, StaledBtn } from './style';
 
 type CodeCardProps = {
   codeInfo: CodeType;
+  addCheckedCode: (code: CodeType) => void;
+  removeCheckedCode: (code: CodeType) => void;
 };
 
-const CodeCard: React.FC<CodeCardProps> = ({ codeInfo }) => {
+const CodeCard: React.FC<CodeCardProps> = ({ codeInfo, addCheckedCode, removeCheckedCode }) => {
   const dispatch = useDispatch();
 
   const handleActivate = () => {
     dispatch(activateCodeAction(codeInfo.code));
   };
 
+  // console.log('codeInfo ', codeInfo);
+
   return (
     <Container>
-      <Checkbox disabled={codeInfo.status !== 'HOLD'} />
+      <Checkbox
+        codeInfo={codeInfo}
+        addCheckedCode={addCheckedCode}
+        removeCheckedCode={removeCheckedCode}
+        disabled={codeInfo.status !== 'HOLD'}
+      />
       <License license={codeInfo.code} />
       <Domain domain={codeInfo.origin} />
       {codeInfo.status === 'INACTIVE' && (

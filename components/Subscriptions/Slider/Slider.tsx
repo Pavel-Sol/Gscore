@@ -8,8 +8,13 @@ import { Container, SliderRow, SliderContainer, Item } from './style';
 type SliderProps = {
   subscriptions: SubscriptionType[];
   onSelectCurSubscription: (ind: number) => void;
+  resetCheckedCodeList: () => void;
 };
-const Slider: React.FC<SliderProps> = ({ subscriptions, onSelectCurSubscription }) => {
+const Slider: React.FC<SliderProps> = ({
+  subscriptions,
+  onSelectCurSubscription,
+  resetCheckedCodeList,
+}) => {
   const [offset, setOffset] = useState(0);
   const [curIndex, setCurIndex] = useState(0);
   const windowWidth = useWindowDimensions();
@@ -19,12 +24,14 @@ const Slider: React.FC<SliderProps> = ({ subscriptions, onSelectCurSubscription 
     setOffset((prev) => prev + offsetWidth);
     onSelectCurSubscription(curIndex - 1);
     setCurIndex((prev) => prev - 1);
+    resetCheckedCodeList();
   };
 
   const handleNext = () => {
     setOffset((prev) => prev - offsetWidth);
     onSelectCurSubscription(curIndex + 1);
     setCurIndex((prev) => prev + 1);
+    resetCheckedCodeList();
   };
 
   return (

@@ -5,6 +5,7 @@ import {
   ChangePassRequestType,
   ActivateCodeRequestType,
   UpgradeSubRequestType,
+  SaveCodesRequestType,
 } from './../../../types/types';
 import { authInstance, commonInstance } from './instance';
 
@@ -49,5 +50,9 @@ export const API = {
 
   activateCode: (code: ActivateCodeRequestType) => {
     return commonInstance.post('api/code/activate', code);
+  },
+
+  saveCodes: (data: SaveCodesRequestType) => {
+    return commonInstance.put('api/code/manage', data);
   },
 };

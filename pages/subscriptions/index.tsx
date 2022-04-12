@@ -1,19 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCodesAction, getSubscriptionsAction } from '../../store/actions';
+import { getCodesAction, getSubscriptionsAction, saveCodesAction } from '../../store/actions';
 import { RootState } from '../../store/store';
 import { CodeCard, Slider, NoSubscriptions, UpgradeSubs } from '../../components';
-import { SubscriptionType } from '../../types/types';
-import { Button, Modal } from '../../components/ui';
+import { CodeType, SubscriptionType } from '../../types/types';
+import { Button, Error, Modal } from '../../components/ui';
 
 const Subscriptions = () => {
   const dispatch = useDispatch();
+  const error = useSelector((state: RootState) => state.code.error);
   const subscriptions = useSelector((state: RootState) => state.subscription.subscriptions);
   const allCodes = useSelector((state: RootState) => state.code.codes);
   const [curSubscription, setCurSubscription] = useState<SubscriptionType>(subscriptions[0]);
   const currentCodes = allCodes.filter((el) => el.subscribeId === curSubscription?.id);
   const [isShowModal, setIsShowModal] = useState(false);
+  const [checkedCodeList, setCheckedCodeList] = useState<CodeType[]>([]);
+
+  const addCheckedCode = (code: CodeType) => {
+    const updatedCheckedCodeList = [...checkedCodeList, code];
+    setCheckedCodeList(updatedCheckedCodeList);
+  };
+  const removeCheckedCode = (code: CodeType) => {
+    const updatedCheckedCodeList = checkedCodeList.filter((el) => el.id !== code.id);
+    setCheckedCodeList(updatedCheckedCodeList);
+  };
+
+  const resetCheckedCodeList = () => {
+    setCheckedCodeList([]);
+  };
+
+  const confirmCodes = () => {
+    const codesIds = checkedCodeList.map((el) => el.id);
+    const data = {
+      subscribeId: curSubscription.id,
+      codesIds: codesIds,
+    };
+
+    dispatch(saveCodesAction(data));
+    resetCheckedCodeList();
+  };
 
   const closeModal = () => {
     setIsShowModal(false);
@@ -45,10 +71,25 @@ const Subscriptions = () => {
         <Title>My Subscriptions</Title>
         <Button onClick={() => setIsShowModal(true)}>Upgrade</Button>
       </Heading>
-      <Slider subscriptions={subscriptions} onSelectCurSubscription={selectCurSubscription} />
+      <Slider
+        resetCheckedCodeList={resetCheckedCodeList}
+        subscriptions={subscriptions}
+        onSelectCurSubscription={selectCurSubscription}
+      />
+      {error && <Error error={error} />}
       {currentCodes.map((code) => {
-        return <CodeCard key={code.id} codeInfo={code} />;
+        return (
+          <CodeCard
+            key={code.id}
+            codeInfo={code}
+            addCheckedCode={addCheckedCode}
+            removeCheckedCode={removeCheckedCode}
+          />
+        );
       })}
+      <BtnWrap>
+        <Button onClick={confirmCodes}>Confirm</Button>
+      </BtnWrap>
     </>
   );
 };
@@ -66,6 +107,13 @@ const Heading = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 48px;
+`;
+
+const BtnWrap = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 20px 0px;
 `;
 
 export default Subscriptions;
