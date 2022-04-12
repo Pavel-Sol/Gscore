@@ -1,13 +1,15 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { AxiosResponse } from 'axios';
+
+import { ChangeInfoResponseType, PersonalInfoActionType, ChangePassActionType } from 'types';
 import {
-  ChangeInfoResponseType,
-  PersonalInfoActionType,
-  ChangePassActionType,
-} from '../../types/types';
-import { personalInfoAction, changePassAction } from '../actions';
-import { login, setUserError, setUserLoading } from '../reducers';
-import { API } from '../services';
+  personalInfoAction,
+  changePassAction,
+  login,
+  setUserError,
+  setUserLoading,
+  API,
+} from 'store';
 
 function* changePersonalInfoSaga(action: PersonalInfoActionType) {
   try {

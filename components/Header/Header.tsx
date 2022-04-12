@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-
-import { Container, StyledHeader, LogoWrap } from './style';
-import { DescNav, Burger, MobileNav } from './components';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { LS } from '../../store/services';
-import { reset } from '../../store/reducers';
+
+import { RootState, LS, reset } from 'store';
+import { DescNav, Burger, MobileNav } from './components';
+import { Container, StyledHeader, LogoWrap } from './style';
 
 type HeaderProps = {};
 

@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { CloseIcon, Exit, Settings } from '../../../icons';
+
+import { CloseIcon, Exit, Settings } from 'components';
 import {
   Container,
   Nav,

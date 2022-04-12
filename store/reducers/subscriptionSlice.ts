@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SubscriptionType } from '../../types/types';
+import { SubscriptionType } from 'types';
 
 type InitialSubscriptionStateType = {
    subscriptions: SubscriptionType[]

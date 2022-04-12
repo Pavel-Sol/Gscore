@@ -1,6 +1,7 @@
 import React from 'react';
 import useClipboard from 'react-use-clipboard';
-import { Copy } from '../../../../icons';
+
+import { Copy } from 'components';
 import { Container, Title, Field, FieldText, CopyBtn } from './style';
 
 type LicenseProps = {

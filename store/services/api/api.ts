@@ -6,7 +6,7 @@ import {
   ActivateCodeRequestType,
   UpgradeSubRequestType,
   SaveCodesRequestType,
-} from './../../../types/types';
+} from 'types';
 import { authInstance, commonInstance } from './instance';
 
 export const API = {

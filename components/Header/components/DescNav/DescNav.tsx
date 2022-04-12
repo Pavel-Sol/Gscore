@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { Exit, Settings } from '../../../icons';
+
+import { Exit, Settings } from 'components';
 import {
   Container,
   ExtraMenu,

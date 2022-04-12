@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseIcon } from '../../icons';
+import { CloseIcon } from 'components';
 import { BtnClose, ModalContent, ModalPopup, ModalWrapper } from './style';
 
 type ModalPropsType = {

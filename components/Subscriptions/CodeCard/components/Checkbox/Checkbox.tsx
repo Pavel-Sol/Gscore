@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { CodeType } from '../../../../../types/types';
-import { Check } from '../../../../icons';
+
+import { CodeType } from 'types';
+import { Check } from 'components';
 import { Container, Wrapper } from './style';
 
 type CheckboxProps = {

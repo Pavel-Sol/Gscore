@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { UpgradeSubRequestType } from '../../types/types';
+import { UpgradeSubRequestType } from 'types';
 
 export const getSubscriptionsAction = createAction('getSubscriptions');
 

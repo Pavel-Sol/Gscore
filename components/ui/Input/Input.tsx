@@ -1,5 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
-import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
+import React from 'react';
 import { InputStyled } from './style';
 
 type InputProps = React.DetailedHTMLProps<

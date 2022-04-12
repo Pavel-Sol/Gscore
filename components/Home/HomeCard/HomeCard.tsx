@@ -1,6 +1,10 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { ListItem } from '../../icons';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectProduct, setActiveStep, RootState } from 'store';
+import { ProductType } from 'types';
+import { ListItem } from 'components';
 import {
   Container,
   Content,
@@ -14,10 +18,6 @@ import {
   ItemText,
   StyledBtn,
 } from './style';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
-import { selectProduct, setActiveStep } from '../../../store/reducers';
-import { ProductType } from '../../../types/types';
 
 type HomeCardProps = {
   index: number;

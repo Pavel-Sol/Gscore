@@ -1,9 +1,8 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { AxiosResponse } from 'axios';
-import { RegisterUserActionType, RegisterResponseType } from '../../types/types';
-import { registerUserAction } from '../actions';
-import { setActiveStep, setUserError, setUserLoading } from '../reducers';
-import { API } from '../services';
+
+import { RegisterUserActionType, RegisterResponseType } from 'types';
+import { registerUserAction, setActiveStep, setUserError, setUserLoading, API } from 'store';
 
 function* signUpSaga(action: RegisterUserActionType) {
   try {

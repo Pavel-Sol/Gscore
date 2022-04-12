@@ -1,9 +1,8 @@
 import { AxiosResponse } from 'axios';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { CodeType, SubscriptionType, UpgradeSubActionType } from '../../types/types';
-import { getSubscriptionsAction, upgradeSubAction } from '../actions';
-import { setCodes, setSubscriptions } from '../reducers';
-import { API } from '../services';
+
+import { CodeType, SubscriptionType, UpgradeSubActionType } from 'types';
+import { getSubscriptionsAction, upgradeSubAction, setCodes, setSubscriptions, API } from 'store';
 
 function* fetchSubscriptionsSaga() {
   try {

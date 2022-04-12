@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ChangePassForm, ModeController, PersonalInfoForm } from '../../components';
+import { ChangePassForm, ModeController, PersonalInfoForm } from 'components';
 
 const Settings = () => {
   const [mode, setMode] = useState<'PERSONAL_INFO' | 'CHANGE_PASSWORD'>('PERSONAL_INFO');

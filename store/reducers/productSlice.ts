@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProductType } from '../../types/types';
+import { ProductType } from 'types';
 
 type InitialProductStateType = {
   selectedProduct: ProductType | null;

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { CloseIcon } from '../../icons';
-import { Button } from '../../ui';
+
+import { CloseIcon, Button } from 'components';
 import { Container, CloseBtn, Title, SubTitle } from './style';
 
 const NoSubscriptions = () => {

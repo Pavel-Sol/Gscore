@@ -1,9 +1,8 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { AxiosResponse } from 'axios';
-import { AuthMeResponseType } from '../../types/types';
-import { authMeAction } from '../actions';
-import { login, reset } from '../reducers';
-import { API, LS } from '../services';
+
+import { AuthMeResponseType } from 'types/types';
+import { authMeAction, login, reset, API, LS } from 'store';
 
 function* fetchAuthMe() {
   try {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SubscriptionType } from '../../../types/types';
+
+import { SubscriptionType } from 'types';
 import {
   Container,
   Heading,

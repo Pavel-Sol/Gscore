@@ -1,10 +1,16 @@
-import { SaveCodesActionType } from './../../types/types';
-import { API } from './../services/api/api';
 import { AxiosResponse } from 'axios';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { ActivateCodeActionType, CodeType } from '../../types/types';
-import { activateCodeAction, getCodesAction, saveCodesAction } from '../actions';
-import { activateCode, setCodes, setError } from '../reducers';
+
+import { SaveCodesActionType, ActivateCodeActionType, CodeType } from 'types';
+import {
+  activateCodeAction,
+  getCodesAction,
+  saveCodesAction,
+  API,
+  activateCode,
+  setCodes,
+  setError,
+} from 'store';
 
 function* fetchCodesSaga() {
   try {

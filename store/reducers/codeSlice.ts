@@ -1,13 +1,13 @@
-import { CodeType } from './../../types/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CodeType } from 'types';
 
 type InitialCodeStateType = {
   codes: CodeType[];
-  error: string | null
+  error: string | null;
 };
 const initialState: InitialCodeStateType = {
   codes: [],
-  error: null
+  error: null,
 };
 
 const codeSlice = createSlice({

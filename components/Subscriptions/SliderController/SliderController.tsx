@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight } from '../../icons';
+import { ArrowLeft, ArrowRight } from 'components';
 import { Container, Counter, NumberCurPage, PageAmount, Btn } from './style';
 
 type SliderControllerProps = {

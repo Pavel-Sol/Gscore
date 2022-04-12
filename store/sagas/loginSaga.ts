@@ -1,9 +1,16 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { AxiosResponse } from 'axios';
-import { LoginUserActionType, LoginResponseType } from '../../types/types';
-import { loginUserAction } from '../actions';
-import { login, setActiveStep, setUserError, setUserLoading } from '../reducers';
-import { API, LS } from '../services';
+
+import { LoginUserActionType, LoginResponseType } from 'types';
+import {
+  loginUserAction,
+  login,
+  setActiveStep,
+  setUserError,
+  setUserLoading,
+  API,
+  LS,
+} from 'store';
 
 function* signInSaga(action: LoginUserActionType) {
   try {

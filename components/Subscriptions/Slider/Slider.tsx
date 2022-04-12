@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useWindowDimensions } from '../../../hooks';
-import { SubscriptionType } from '../../../types/types';
-import { SliderCard } from '../SliderCard';
-import { SliderController } from '../SliderController';
+
+import { useWindowDimensions } from 'hooks';
+import { SubscriptionType } from 'types';
+import { SliderCard, SliderController } from 'components';
 import { Container, SliderRow, SliderContainer, Item } from './style';
 
 type SliderProps = {

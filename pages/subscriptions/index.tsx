@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCodesAction, getSubscriptionsAction, saveCodesAction } from '../../store/actions';
-import { RootState } from '../../store/store';
-import { CodeCard, Slider, NoSubscriptions, UpgradeSubs } from '../../components';
-import { CodeType, SubscriptionType } from '../../types/types';
-import { Button, Error, Modal } from '../../components/ui';
+
+import { getCodesAction, getSubscriptionsAction, saveCodesAction, RootState } from 'store';
+import { CodeCard, Slider, NoSubscriptions, UpgradeSubs, Button, Error, Modal } from 'components';
+import { CodeType, SubscriptionType } from 'types';
 
 const Subscriptions = () => {
   const dispatch = useDispatch();

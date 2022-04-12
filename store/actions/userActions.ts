@@ -4,7 +4,7 @@ import {
   RegisterRequestType,
   PersonalInfoRequestType,
   ChangePassRequestType,
-} from '../../types/types';
+} from 'types';
 
 export const registerUserAction = createAction('registerUser', (user: RegisterRequestType) => {
   return {

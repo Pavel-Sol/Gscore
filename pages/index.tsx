@@ -1,14 +1,12 @@
 import styled from 'styled-components';
-import React, { useEffect } from 'react';
-import { HomeCard } from '../components';
-import Link from 'next/link';
-import { LS } from '../store/services';
-import { useDispatch } from 'react-redux';
-import { reset } from '../store/reducers';
-import { authMeAction, getProductsAction } from '../store/actions';
 import axios from 'axios';
-import { ProductType } from '../types/types';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
+import { HomeCard } from 'components';
+import { authMeAction, getProductsAction, LS, reset } from 'store';
+import { ProductType } from 'types';
 
 export const getServerSideProps = async () => {
   const response = await axios.get('https://gscore-back.herokuapp.com/api/products');

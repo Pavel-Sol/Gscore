@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { SaveCodesRequestType } from '../../types/types';
+import { SaveCodesRequestType } from 'types';
 
 export const getCodesAction = createAction('getCodes');
 

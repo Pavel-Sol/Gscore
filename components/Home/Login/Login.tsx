@@ -1,11 +1,9 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserAction } from '../../../store/actions';
-import { setActiveStep } from '../../../store/reducers';
-import { RootState } from '../../../store/store';
-import { Error, Loader } from '../../ui';
 
+import { loginUserAction, setActiveStep, RootState } from 'store';
+import { Error, Loader } from 'components';
 import {
   StyledButton,
   StyledInput,

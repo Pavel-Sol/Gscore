@@ -1,5 +1,6 @@
 import React from 'react';
-import { BurgerIcon } from '../../../icons';
+
+import { BurgerIcon } from 'components';
 import { StyledBurger } from './style';
 
 type BurgerProps = {

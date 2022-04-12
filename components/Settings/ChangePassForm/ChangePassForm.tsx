@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { changePassAction } from '../../../store/actions';
-import { RootState } from '../../../store/store';
-import { Error, Loader } from '../../ui';
+
+import { changePassAction, RootState } from 'store';
+import { Error, Loader } from 'components';
 import { Container, StyledButton, StyledInput, Title, ValidationError } from './style';
 
 type InputsType = {

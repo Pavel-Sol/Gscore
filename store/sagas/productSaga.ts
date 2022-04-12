@@ -1,9 +1,8 @@
 import { AxiosResponse } from 'axios';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { BuyProductActionType, BuyProductResponseType, ProductType } from '../../types/types';
-import { buyProductAction, getProductsAction } from '../actions';
-import { setProducts } from '../reducers';
-import { API } from '../services';
+
+import { BuyProductActionType, BuyProductResponseType, ProductType } from 'types';
+import { buyProductAction, getProductsAction, setProducts, API } from 'store';
 
 function* fetchProductsSaga() {
   try {
@@ -18,8 +17,6 @@ function* buyProductSaga(action: BuyProductActionType) {
   const response: AxiosResponse<BuyProductResponseType> = yield call(() => {
     return API.buyProduct(action.payload.priceId);
   });
-
-  console.log('buyProductSaga ', response.data);
 
   try {
   } catch (error) {

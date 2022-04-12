@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { buyProductAction } from '../../../store/actions';
-import { setActiveStep } from '../../../store/reducers';
-import { RootState } from '../../../store/store';
+
+import { buyProductAction, setActiveStep, RootState } from 'store';
 import {
   Container,
   Title,

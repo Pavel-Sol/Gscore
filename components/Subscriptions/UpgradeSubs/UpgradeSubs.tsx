@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { upgradeSubAction } from '../../../store/actions';
-import { RootState } from '../../../store/store';
-import { SubscriptionType } from '../../../types/types';
-import { Button } from '../../ui';
+
+import { upgradeSubAction, RootState } from 'store';
+import { SubscriptionType } from 'types';
+import { Button } from 'components';
 import { Container, Title, Radio, Item } from './style';
 
 type UpgradeSubsProps = {

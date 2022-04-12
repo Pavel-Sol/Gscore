@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { activateCodeAction } from '../../../store/actions';
-import { CodeType } from '../../../types/types';
+
+import { activateCodeAction } from 'store';
+import { CodeType } from 'types';
 import { Checkbox, License, Domain, Status } from './components';
 import { Container, StaledBtn } from './style';
 
@@ -17,8 +18,6 @@ const CodeCard: React.FC<CodeCardProps> = ({ codeInfo, addCheckedCode, removeChe
   const handleActivate = () => {
     dispatch(activateCodeAction(codeInfo.code));
   };
-
-  // console.log('codeInfo ', codeInfo);
 
   return (
     <Container>

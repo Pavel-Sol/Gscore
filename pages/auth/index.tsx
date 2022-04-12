@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { Checkout, Login, Register, StartSubscription, Stepper } from '../../components';
-import { RootState } from '../../store/store';
+
+import { Checkout, Login, Register, StartSubscription, Stepper } from 'components';
+import { RootState } from 'store';
 
 const Auth = () => {
   const activeStep = useSelector((state: RootState) => state.user.activeStep);
