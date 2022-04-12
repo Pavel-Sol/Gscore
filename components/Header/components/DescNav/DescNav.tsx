@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Exit, Settings } from '../../../icons';
 import {
   Container,
@@ -17,9 +17,18 @@ type DescNavProps = {
 };
 const DescNav: React.FC<DescNavProps> = ({ userName, onLogout }) => {
   const [showExtraMenu, setShowExtraMenu] = useState(false);
-  const toggleExtraMenu = () => {
+  const toggleExtraMenu = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setShowExtraMenu(!showExtraMenu);
   };
+
+  useEffect(() => {
+    document.addEventListener('click', () => setShowExtraMenu(false));
+
+    return function cleanup() {
+      document.removeEventListener('click', () => setShowExtraMenu(false));
+    };
+  }, []);
 
   return (
     <Container>
@@ -27,7 +36,7 @@ const DescNav: React.FC<DescNavProps> = ({ userName, onLogout }) => {
         <Link href="subscriptions">
           <a>My subscriptions</a>
         </Link>
-        <MoreBtn onClick={toggleExtraMenu} showExtraMenu={showExtraMenu}>
+        <MoreBtn onClick={(e) => toggleExtraMenu(e)} showExtraMenu={showExtraMenu}>
           {userName}
         </MoreBtn>
       </NavBar>
