@@ -2,10 +2,19 @@ import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUserAction } from '../../../store/actions';
+import { setActiveStep } from '../../../store/reducers';
 import { RootState } from '../../../store/store';
 import { Error, Loader } from '../../ui';
 
-import { StyledButton, StyledInput, ValidationError, Container, Title } from './style';
+import {
+  StyledButton,
+  StyledInput,
+  ValidationError,
+  Container,
+  Title,
+  GoBack,
+  PrevStep,
+} from './style';
 
 type InputsType = {
   email: string;
@@ -27,6 +36,10 @@ const Login = () => {
   const onSubmit: SubmitHandler<InputsType> = (data) => {
     dispatch(loginUserAction(data));
     reset();
+  };
+
+  const handleClick = () => {
+    dispatch(setActiveStep(1));
   };
 
   if (loading) {
@@ -59,6 +72,9 @@ const Login = () => {
         />
 
         <StyledButton>Log in</StyledButton>
+        <GoBack>
+          <PrevStep onClick={handleClick}>Go back to registration</PrevStep>
+        </GoBack>
       </form>
     </Container>
   );

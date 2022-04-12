@@ -30,3 +30,14 @@ export const ValidationError = styled.p`
   color: red;
   margin: 3px 0;
 `;
+
+export const GoBack = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 30px 0px;
+`;
+export const PrevStep = styled.p`
+  color: rgba(252, 88, 66, 1);
+  margin-left: 10px;
+  cursor: pointer;
+`;
