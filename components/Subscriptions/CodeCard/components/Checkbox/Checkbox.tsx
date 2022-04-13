@@ -37,7 +37,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           type="checkbox"
           onChange={(e) => onChange(e)}
         />
-        {checked && <Check />}
+        {checked && !disabled && <Check />}
       </Wrapper>
     </Container>
   );

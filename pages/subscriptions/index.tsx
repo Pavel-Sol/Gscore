@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getCodesAction, getSubscriptionsAction, saveCodesAction, RootState } from 'store';
+import {
+  getCodesAction,
+  getSubscriptionsAction,
+  saveCodesAction,
+  RootState,
+  setError,
+} from 'store';
 import { CodeCard, Slider, NoSubscriptions, UpgradeSubs, Button, Error, Modal } from 'components';
 import { CodeType, SubscriptionType } from 'types';
 
@@ -27,6 +33,7 @@ const Subscriptions = () => {
 
   const resetCheckedCodeList = () => {
     setCheckedCodeList([]);
+    dispatch(setError(null));
   };
 
   const confirmCodes = () => {
@@ -36,7 +43,7 @@ const Subscriptions = () => {
       codesIds: codesIds,
     };
 
-    // console.log('confirmCodes ', data);
+    console.log('confirmCodes ', data);
     dispatch(saveCodesAction(data));
   };
 
