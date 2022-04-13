@@ -41,6 +41,7 @@ function* saveCodesSaga(action: SaveCodesActionType) {
       API.saveCodes(action.payload.data),
     );
 
+    // console.log('saveCodesSaga ', response.data);
     if (response.data) {
       const response: AxiosResponse<CodeType[]> = yield call(API.getCodes);
       yield put(setCodes(response.data));

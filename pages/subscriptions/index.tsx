@@ -36,8 +36,8 @@ const Subscriptions = () => {
       codesIds: codesIds,
     };
 
+    // console.log('confirmCodes ', data);
     dispatch(saveCodesAction(data));
-    resetCheckedCodeList();
   };
 
   const closeModal = () => {
